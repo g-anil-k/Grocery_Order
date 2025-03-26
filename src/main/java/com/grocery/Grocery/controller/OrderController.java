@@ -37,4 +37,29 @@ public class OrderController {
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto){
         return ResponseEntity.ok(orderService.createOrder(orderDto));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<OrderDto> updateOrder(@PathVariable Long id, @RequestBody OrderDto orderDto){
+
+        return ResponseEntity.ok(orderService.updateOrder(id,orderDto));
+
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> deleteOrderById(@PathVariable Long id){
+        Boolean result = orderService.deleteOrderById(id);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

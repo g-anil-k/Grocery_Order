@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,5 +19,6 @@ public class OrderDto {
 
     private LocalDate orderDate;
     private double totalPrice;
-    private CustomerEntity customerOrder;
+    private CustomerDto customerOrder;
+    private Set<GroceryDto> groceryDto;
 }

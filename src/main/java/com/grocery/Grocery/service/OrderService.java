@@ -11,4 +11,8 @@ public interface OrderService {
     OrderDto createOrder(OrderDto orderDto);
 
     Optional<OrderDto> getOrderById(Long id);
+
+    OrderDto updateOrder(Long id, OrderDto orderDto);
+
+    Boolean deleteOrderById(Long id);
 }

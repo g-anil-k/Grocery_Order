@@ -39,4 +39,20 @@ public class OrderServiceImpl implements OrderService{
     public Optional<OrderDto> getOrderById(Long id) {
         return Optional.ofNullable(modelMapper.map(orderRepository.findById(id),OrderDto.class));
     }
+
+    @Override
+    public OrderDto updateOrder(Long id, OrderDto orderDto) {
+        OrderEntity entity = modelMapper.map(orderDto,OrderEntity.class);
+        entity.setId(id);
+        return modelMapper.map(orderRepository.save(entity),OrderDto.class);
+    }
+
+    @Override
+    public Boolean deleteOrderById(Long id) {
+        if(orderRepository.existsById(id)){
+            orderRepository.deleteById(id);
+            return  true;
+        }
+        return false;
+    }
 }
